@@ -2,8 +2,7 @@
 # Hover-boat-project-
 To control the speed of the motors
 ---------------------------------------------
-/*to make a Bluetooth control boat using Arduino
-  RX Engineering*/
+/to make a Bluetooth control boat using Arduino/
 --------------------------------------------
 #define IN1 2
 #define IN2 3
