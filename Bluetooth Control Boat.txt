@@ -1,6 +1,5 @@
-/*How to make a Bluetooth control boat using Arduino
-  RX Engineering
-*/
+//a Bluetooth control boat using Arduino
+  
 
 #define IN1 2
 #define IN2 3
