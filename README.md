@@ -1,68 +1,67 @@
----------------------------------------------
-# Hover-boat-project-
-To control the speed of the motors
----------------------------------------------
-/to make a Bluetooth control boat using Arduino/
---------------------------------------------
-#define IN1 2
-#define IN2 3
-#define IN3 4
-#define IN4 5
-
-void setup() {
-  Serial.begin(9600);
-  pinMode(IN1, OUTPUT);
-  pinMode(IN2, OUTPUT);
-  pinMode(IN3, OUTPUT);
-  pinMode(IN4, OUTPUT);
-}
-
-void loop() {
-  if (Serial.available() > 0) {
-    char value = Serial.read();
-    Serial.print(value);
-
-    if (value == 'F') {
-      forward();
-    } else if (value == 'B') {
-      backward();
-    } else if (value == 'L') {
-      left();
-    } else if (value == 'R') {
-      right();
-    } else {
-      Stop();
-    }
-  }
-}
-
-void forward() {
-  digitalWrite(IN1, HIGH);
-  digitalWrite(IN2, LOW);
-  digitalWrite(IN3, HIGH);
-  digitalWrite(IN4, LOW);
-}
-void backward() {
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, HIGH);
-  digitalWrite(IN3, LOW);
-  digitalWrite(IN4, HIGH);
-}
-void left() {
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, HIGH);
-  digitalWrite(IN3, HIGH);
-  digitalWrite(IN4, LOW);
-}
-void right() {
-  digitalWrite(IN1, HIGH);
-  digitalWrite(IN2, LOW);
-  digitalWrite(IN3, LOW);
-  digitalWrite(IN4, HIGH);
-}
-void Stop() {
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, LOW);
-  digitalWrite(IN3, LOW);
-  digitalWrite(IN4, LOW);
-}
+# Bluetooth Controlled Hover Boat using Arduino UNO
+A simple Bluetooth-controlled hover boat project built using an Arduino UNO and motor driver. The boat receives commands from a Bluetooth-enabled smartphone and performs forward, backward, left, right, and stop movements.
+# Features
+Wireless Bluetooth control
+Forward movement
+Backward movement
+Left turn
+Right turn
+Stop function
+Simple Arduino implementation
+Beginner-friendly project
+# Hardware Requirements
+Arduino UNO
+Bluetooth Module (HC-05 / HC-06)
+Motor Driver Module (L298N or similar)
+DC Motors
+Hover Boat Chassis
+Battery Pack
+Connecting Wires
+Smartphone with Bluetooth Controller App
+# Pin Connections
+Arduino UNO
+Motor Driver
+D2
+IN1
+D3
+IN2
+D4
+IN3
+D5
+IN4
+Bluetooth Module
+Bluetooth Module
+Arduino UNO
+TX
+RX
+RX
+TX
+VCC
+5V
+GND
+GND
+Note: For reliable communication, SoftwareSerial can also be used instead of the hardware serial pins.
+# Bluetooth Commands
+Command
+Action
+F
+Move Forward
+B
+Move Backward
+L
+Turn Left
+R
+Turn Right
+Any Other Character
+Stop
+# Working Principle
+The smartphone sends a command through Bluetooth.
+The HC-05/HC-06 module receives the command.
+Arduino reads the incoming character through serial communication.
+Based on the received command:
+F → Forward
+B → Backward
+L → Left
+R → Right
+The Arduino controls the motor driver pins accordingly.
+Motors rotate in the required direction, moving the hover boat.
